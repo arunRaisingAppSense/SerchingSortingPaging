@@ -1,0 +1,2 @@
+class Clint < ApplicationRecord
+end

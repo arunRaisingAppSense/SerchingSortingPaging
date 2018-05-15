@@ -1,0 +1,17 @@
+<%= form_with(model: clint, local: true) do |form| %>
+  <% if clint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clint.errors.count, "error") %> prohibited this clint from being saved:</h2>
+
+      <ul>
+      <% clint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
