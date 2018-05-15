@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :projects
   resources :students
   resources :books
-  #get 'welcome/index'
-  #get 'projects/:id', to: 'projects#search1'
+  get 'projects/index'
+  
 
   resources :clints
   resources :recipes
