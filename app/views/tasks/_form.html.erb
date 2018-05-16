@@ -1,0 +1,6 @@
+<%= form_for @task, remote: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.check_box :complete,:checked => false, :style => 'visibility: hidden' %>
+  <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,8 @@
+$('#incomplete_tasks').append('<%= j render(@task) %>');
+$(document).ready(function(){
+    $("#commit").click(function(){
+      $("#incomplete_tasks").load('<%= j render(@task) %>');
+    });
+});
+
+

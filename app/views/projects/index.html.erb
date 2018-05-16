@@ -1,3 +1,6 @@
+
+
+
 <p id="notice"><%= notice %></p>
 <% if @projects.blank? %>
   <h4>There are no Projects containing the term <%= params[:search] %>.</h4>
@@ -17,21 +20,9 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.id %></td>
-        <td><%= project.name %></td>
-        <td><%= project.duration %></td>
-        <td><%= project.created_at.strftime("Date(%d-%B-%y) Time(%T)") %></td>
-        <td><%= project.updated_at.strftime("Date(%d-%m-%Y) Time(%T)") %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+ <%= render 'index_content' %>
 </table><br><br>
+
   <%= will_paginate @projects %>
 <br><br><br>
 

@@ -1,0 +1,6 @@
+<% task = Task.find(params[:id]) %>
+<p>ID :- <%= task.id %>|
+Name :-<%= task.name %>|
+Status :-<%= task.complete %>|
+<%= link_to "(remove)", task, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>	
+</p>

@@ -1,0 +1,17 @@
+<h1>Tutorials</h1>
+
+<ul id=tutorials>
+  <% @tutorials.each do |tutorial| %>
+    <li><%= tutorial.title %></li>
+  <% end %>
+</ul>
+
+<ul id=tutorials>
+  <%= render @tutorials %>
+</ul
+
+<%= form_for @tutorial, data: {'js-tutorial-form' => true} do |form| %>
+  Title <%= form.text_field :title %><br>
+  URL <%= form.text_field :url %><br>
+  <%= form.submit %>
+<% end %>

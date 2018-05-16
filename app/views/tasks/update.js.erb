@@ -1,0 +1,13 @@
+<% if @task.complete? %>
+	$('#edit_task_<%= @task.id %>').hide();
+<% end %>  	
+
+
+$('#complete_tasks').append('<%= j render("update_task") %>');
+$(document).ready(function(){
+    $("#commit").click(function(){
+      $("#complete_tasks").load('<%= j render("update_task") %>');
+    });
+});
+
+

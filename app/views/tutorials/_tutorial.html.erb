@@ -1,0 +1,3 @@
+<li data-js-tutorial-id=<%= tutorial.id %>>
+  <%= tutorial.title %> <%= link_to "Delete", tutorial, remote: true, method: :delete, data: { confirm: "Are you sure you want to delete '#{tutorial.title}'?" } %>
+</li>

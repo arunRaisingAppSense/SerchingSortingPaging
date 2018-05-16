@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :tutorials
+  get 'tasks/index'
+  get 'tasks/new'
   resources :comments
   resources :projects
   resources :students
@@ -8,11 +11,11 @@ Rails.application.routes.draw do
 
   resources :clints
   resources :recipes
+  resources :tasks
 
-  #root 'students#index'
+  root to: 'tasks#index'
+  #root 'projects#index'
 
-  # resources :users, only: [:index]
-  # root 'users#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #get 'peoject/search'
 end
 	
