@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   resources :projects
   resources :students
   resources :books
-  #root 'projects/index'
+  root 'projects/index'
   
 
   resources :clints
   resources :recipes
   resources :tasks
 
-  root to: 'tasks#index'
+  #root to: 'tasks#index'
   #root 'projects#index'
 
   #get 'peoject/search'
