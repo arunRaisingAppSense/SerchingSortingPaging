@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :students
   resources :books
-  root 'projects/index'
+  #root 'projects/index'
   
 
   resources :clints

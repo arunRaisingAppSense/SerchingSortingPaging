@@ -1,4 +1,9 @@
-
+<script>
+  $(document).on("keyup", "#search-form", function(){
+       $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
+       return false;
+  });
+</script>
 
 
 <p id="notice"><%= notice %></p>
@@ -19,11 +24,18 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+<div class="projects" id="project_list">
 
- <%= render 'index_content' %>
+    <%= render 'index_content' %>
+    
+</div>
 </table><br><br>
 
   <%= will_paginate @projects %>
 <br><br><br>
 
+  <%# if params[:search].present? %>
+  <div class="projects" id="search_list"> 
+  </div>
+<%# end %>
 <%= link_to 'New Project', new_project_path %>

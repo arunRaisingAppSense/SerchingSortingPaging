@@ -1,6 +1,5 @@
-<%= form_tag(projects_url, :method => "get", id: "search-form") do %>
+<%= form_tag(projects_url, :method => "get", id: "search-form", remote: true) do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Project" %>
-<%= submit_tag "Search",  class: "search_projects",:name => nil %>
+<%= submit_tag "Search",id: "ajaxSearch",  class: "search_projects",:name => nil %>
 <% end %>
-
 

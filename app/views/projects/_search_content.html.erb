@@ -1,5 +1,6 @@
+ <% if @searchProjects.present?%>
  <tbody class="project_tbody_content">
-    <% @projects.each do |project| %>
+    <% @searchProjects.each do |project| %>
       <%# byebug %>
       <tr>
         <td><%= project.id %></td>
@@ -13,3 +14,4 @@
       </tr>
     <% end %>
   </tbody>
+  <% end %>

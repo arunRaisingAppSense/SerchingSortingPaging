@@ -5,9 +5,18 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
-    if params[:search]
+     @project = Project.new
+    if params[:search] 
+      #byebug
       @projects = Project.search(params[:search]).paginate(:page => params[:page], per_page: 3).order(sort_column + " " + sort_direction)
+      
+          @searchProjects = Project.ajax_search(params[:search])
+          respond_to do |f|
+            f.html { redirect_to @project }
+            f.js { }
+      
+        end
+      #byebug
     else
       @projects = Project.paginate(:page => params[:page], per_page: 3).order(sort_column + " " + sort_direction)
     end
