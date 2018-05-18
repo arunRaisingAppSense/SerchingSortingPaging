@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   resources :recipes
   resources :tasks
 
+<<<<<<< HEAD
   #root to: 'tasks#index'
+=======
+
+
+>>>>>>> 4e3137dd5dee76a2032ec13e879914b291118247
   root 'projects#index'
 
-  #get 'peoject/search'
+
 end
 	
