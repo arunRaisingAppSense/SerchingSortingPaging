@@ -1,4 +1,15 @@
  <% if @searchProjects.present?%>
+ <table>
+  <thead>
+    <tr>
+      <th><%= sort_link "id" , "Project ID" %></th>
+      <th><%= sort_link "name" , "Name" %></th>
+      <th><%= sort_link "duration" , "Duration" %></th>
+      <th><%= sort_link "created_at" , "Created At" %></th>
+      <th><%= sort_link "updated_at" , "Updated At" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
  <tbody class="project_tbody_content">
     <% @searchProjects.each do |project| %>
       <%# byebug %>
@@ -13,5 +24,9 @@
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
+  </tbody></table>
+<%= will_paginate @projects %> 
+  <% else %>
+    <p> No records found</p>
   <% end %>
+  

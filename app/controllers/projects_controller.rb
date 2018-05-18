@@ -5,20 +5,32 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-     @project = Project.new
-    if params[:search] 
-      #byebug
-      @projects = Project.search(params[:search]).paginate(:page => params[:page], per_page: 3).order(sort_column + " " + sort_direction)
-      
-          @searchProjects = Project.ajax_search(params[:search])
-          respond_to do |f|
-            f.html { redirect_to @project }
-            f.js { }
-      
-        end
+    @project = Project.new
+    if params[:noFoPage] || params[:search]
+      @noFoPage = params[:noFoPage] 
+    else
+      @noFoPage = 3
+    end
+    #byebug
+    if params[:search] || params[:noFoPage]
+    #byebug
+      if params[:search]
+        @projects = Project.search(params[:search]).paginate(:page => params[:page], per_page: @noFoPage).order(sort_column + " " + sort_direction)
+        @searchProjects = Project.ajax_search(params[:search])
+          if @searchProjects.present? == false
+            redirect_to projects_path
+          end
+      else
+        @projects = Project.paginate(:page => params[:page], per_page: @noFoPage).order(sort_column + " " + sort_direction)
+        @searchProjects = Project.paginate(:page => params[:page], per_page: @noFoPage).order(sort_column + " " + sort_direction)
+      end  
+      respond_to do |f|
+        f.html { redirect_to @project }
+        f.js { }
+      end
       #byebug
     else
-      @projects = Project.paginate(:page => params[:page], per_page: 3).order(sort_column + " " + sort_direction)
+      @projects = Project.paginate(:page => params[:page], per_page: @noFoPage).order(sort_column + " " + sort_direction)
     end
   end
   # GET /projects/1

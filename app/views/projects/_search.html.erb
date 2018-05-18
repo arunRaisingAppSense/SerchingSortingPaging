@@ -1,5 +1,9 @@
 <%= form_tag(projects_url, :method => "get", id: "search-form", remote: true) do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Project" %>
-<%= submit_tag "Search",id: "ajaxSearch",  class: "search_projects",:name => nil %>
+<%#= submit_tag "Search",id: "ajaxSearch",  class: "search_projects",:name => nil %>
+<%#= text_field_tag :noFoPage, params[:noFoPage], placeholder: "Enter How many record shoud be show" %>
+
 <% end %>
+
+
 

@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :recipes
   resources :tasks
 
-  root to: 'tasks#index'
-  #root 'projects#index'
+  #root to: 'tasks#index'
+  root 'projects#index'
 
   #get 'peoject/search'
 end

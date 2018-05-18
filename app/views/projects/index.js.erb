@@ -1,4 +1,8 @@
+<% if @searchProjects.present? %>
+	$("#search_list").html('<%= j render("search_content") %>');
+<% else %>          
+	$("#search_list").html('<%= j render("index_content") %>');
+<% end %>
 
-$("#search_list").html('<%= j render("search_content") %>');
 
 

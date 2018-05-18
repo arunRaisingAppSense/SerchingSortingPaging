@@ -3,39 +3,24 @@
        $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
        return false;
   });
+
+  $(document).on("change", "#noFoPage-form", function(){
+       $.get($("#noFoPage-form").attr("action"), $("#noFoPage-form").serialize(), null, "script");
+       return false;
+  });
 </script>
-
-
 <p id="notice"><%= notice %></p>
 <% if @projects.blank? %>
   <h4>There are no Projects containing the term <%= params[:search] %>.</h4>
 <% end %>
 <h1>Projects</h1>
-<%= render 'search', project: @project %>
-
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link "id" , "Project ID" %></th>
-      <th><%= sort_link "name" , "Name" %></th>
-      <th><%= sort_link "duration" , "Duration" %></th>
-      <th><%= sort_link "created_at" , "Created At" %></th>
-      <th><%= sort_link "updated_at" , "Updated At" %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-<div class="projects" id="project_list">
-
-    <%= render 'index_content' %>
-    
+<table><tr>
+  <td><%= render 'search', project: @project %></td>
+  <td>Select No. of Records</td>
+  <td><%= render 'pagging', project: @project %></td>
+</tr></table>
+<div class="projects" id="search_list"> 
+<%= render 'index_content' %>
 </div>
-</table><br><br>
-
-  <%= will_paginate @projects %>
-<br><br><br>
-
-  <%# if params[:search].present? %>
-  <div class="projects" id="search_list"> 
-  </div>
-<%# end %>
+<br><br><br><br><br>
 <%= link_to 'New Project', new_project_path %>
