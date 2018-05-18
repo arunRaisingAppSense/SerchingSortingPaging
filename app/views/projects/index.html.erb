@@ -3,11 +3,20 @@
        $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
        return false;
   });
+  // $(document).on("change", "#search-form", function(){
+  //      $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
+  //      return false;
+  // });
+  
 
   $(document).on("change", "#noFoPage-form", function(){
        $.get($("#noFoPage-form").attr("action"), $("#noFoPage-form").serialize(), null, "script");
        return false;
   });
+  // $(document).on("keyup", "#noFoPage-form", function(){
+  //      $.get($("#noFoPage-form").attr("action"), $("#noFoPage-form").serialize(), null, "script");
+  //      return false;
+  // });
 </script>
 <p id="notice"><%= notice %></p>
 <% if @projects.blank? %>

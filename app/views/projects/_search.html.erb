@@ -1,11 +1,18 @@
 <%= form_tag(projects_url, :method => "get", id: "search-form", remote: true) do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Project" %>
+
 <%#= submit_tag "Search",id: "ajaxSearch",  class: "search_projects",:name => nil %>
-<<<<<<< HEAD
+
 <%#= text_field_tag :noFoPage, params[:noFoPage], placeholder: "Enter How many record shoud be show" %>
 
-=======
->>>>>>> c03127d6c6ba8e89873321c9b9423e8dc8b5fda4
+<%# x = @projects.count %>
+<%# @arr = Array.new() %>
+<%# (1..x).each do |i| %>
+	<%# @arr.push(i) %>
+	<%# i = i + 1 %>
+<%# end %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Project" %>
+<%#= select_tag  params[:noFoPage], options_for_select(@arr, 3) %>
+
 <% end %>
 
 
